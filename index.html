@@ -1,0 +1,126 @@
+<html><!--HTML5 doctype--><head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="Pragma" content="no-cache">
+        <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
+
+        <script type="text/javascript" language="javascript">
+            // This event handler is fired once the AppMobi libraries are ready
+            function onDeviceReady() {
+                //use AppMobi viewport to handle device resolution differences if you want
+               
+                //hide splash screen now that our app is ready to run
+                AppMobi.device.hideSplashScreen();
+                setTimeout(function(){
+                    $.ui.launch();
+                },50);
+            }
+
+            //initial event handler to detect when appMobi is ready to roll
+            document.addEventListener("appMobi.device.ready",onDeviceReady,false);
+        </script> 
+	<script src="js/java.js"></script>
+        <script src="js/appframework.ui.min.js"></script>
+        <script>
+            $.ui.autoLaunch=false;
+            $.ui.useOSThemes=false;
+            $.ui.blockPageScroll();
+            $(document).ready(function(){
+                if($.ui.useOSThemes&&!$.os.ios&&$("#afui").get(0).className!=="ios")
+                $("#afui").removeClass("ios");
+            });
+        </script>
+        <link href="css/icons.css" rel="stylesheet" type="text/css">
+        <link href="css/af.ui.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="afui" class="android light">
+          
+<div id="header"></div>
+          
+<div id="content" style="">
+	          
+	<div class="panel" title="Land Converter 1.0" id="page_0" selected="selected" style="" data-appbuilder-object="page">
+		<ul class="list" data-appbuilder-object="list" data-position="static">
+			<li>
+				<a href="#page_1">Ropani &lt;&gt; Sq.Ft. </a>
+			</li>
+			<li>
+				<a href="#page_2">Bigha &lt;&gt; Sq.Ft.</a>
+			</li>
+		</ul>
+	</div>
+	<div class="panel" title="Ropani &lt;&gt; Sq.Ft." id="page_1" data-appbuilder-object="page" style="">
+		<div class="text_item" data-appbuilder-object="text" data-position="static" style="z-index: 0;">Convert from Ropani-Aana-Paisa-Daam to Sq.Ft.
+		</div>
+		<form style="width: 100%; min-height: 50px; position: relative; z-index: 0;" data-appbuilder-object="form" data-position="static" class="">
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Ropani_i">Ropani</label>
+				<input type="text" style="float:left;" id="Ropani_i" placeholder="0">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Aana_i">Aana</label>
+				<input type="text" style="float:left;" id="Aana_i" placeholder="0">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Paisa_i">Paisa</label>
+				<input type="text" style="float:left;" id="Paisa_i" placeholder="0">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Daam_i">Daam</label>
+				<input type="text" style="float:left;" id="Daam_i" placeholder="0">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="r_sft_o">Sq.Ft.</label>
+				<input type="text" style="float:left;" id="r_sft_o" placeholder="">
+			</div>
+			<a class="button" href="#" style="position: relative; z-index: 2;" data-appbuilder-object="button" data-position="static" data-transition="slide" id="calc_r_sft" onclick="getValues_r_sft();">Calculate</a><a class="button" href="#" style="position: relative; z-index: 2;" data-appbuilder-object="button" data-position="static" data-transition="slide" id="rst_r_sft" onclick="rst_r_sft_v();">Reset</a>
+		</form>
+		<div class="text_item" data-appbuilder-object="text" data-position="static">Convert from Sq.Ft. to Ropani-Aana-Paisa-Daam
+		</div>
+		<div class="container" style="width:100%" data-appbuilder-object="container" data-position="static">
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="sft_r_i">Sq.Ft.</label>
+				<input type="text" style="float:left;" id="sft_r_i" placeholder="0">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Ropani_o">Ropani</label>
+				<input type="text" style="float:left;" id="Ropani_o" placeholder="">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Aana_o">Aana</label>
+				<input type="text" style="float:left;" id="Aana_o" placeholder="">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Paisa_o">Paisa</label>
+				<input type="text" style="float:left;" id="Paisa_o" placeholder="">
+			</div>
+			<div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static">
+				<label for="Daam_o">Daam</label>
+				<input type="text" style="float:left;" id="Daam_o" placeholder="">
+			</div>
+			<a class="button" href="#" style="" data-appbuilder-object="button" data-position="static" data-transition="slide" id="calc_sft_r" onclick="getValues_sft_r();">Calculate</a><a class="button" href="#" style="position: relative; z-index: 2;" data-appbuilder-object="button" data-position="static" data-transition="slide" id="rst_sft_r" onclick="rst_sft_r_v();">Reset</a>
+		</div>
+	</div>
+	<div class="panel" title="Bigha &lt;&gt; Sq.Ft." id="page_2" data-appbuilder-object="page" style="">
+		<div class="text_item" data-appbuilder-object="text" data-position="static">Convert from Bigha-Kattha-Dhur to Sq.Ft.
+		</div>
+	<div class="container" style="width:100%" data-appbuilder-object="container" data-position="static"><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Bigha_i">Bigha</label><input type="text" style="float:left;" id="Bigha_i" placeholder="0"></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Kattha_i">Kattha</label><input type="text" style="float:left;" id="Kattha_i" placeholder="0"></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Dhur_i">Dhur</label><input type="text" style="float:left;" id="Dhur_i" placeholder="0"></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="b_sft_o">Sq.Ft.</label><input type="text" style="float:left;" id="b_sft_o" placeholder=""></div><a class="button" href="#" style="" data-appbuilder-object="button" data-position="static" data-transition="slide" id="calc_b_sft" onclick="getValues_b_sft();">Calculate</a><a class="button" href="#" style="" data-appbuilder-object="button" data-position="static" data-transition="slide" id="rst_b_sft" onclick="rst_b_sft_v();">Reset</a></div><div class="text_item" data-appbuilder-object="text" data-position="static">Convert from Sq.Ft. to Bigha-Kattha-Dhur</div><div class="container" style="width:100%" data-appbuilder-object="container" data-position="static"><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="sft_b_i">Sq.Ft.</label><input type="text" style="float:left;" id="sft_b_i" placeholder="0"></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Bigha_o">Bigha</label><input type="text" style="float:left;" id="Bigha_o" placeholder=""></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Kattha_o">Kattha</label><input type="text" style="float:left;" id="Kattha_o" placeholder=""></div><div class="input_element form_element" style="width:100%;overflow:hidden" data-appbuilder-object="input" data-position="static"><label for="Dhur_o">Dhur</label><input type="text" style="float:left;" id="Dhur_o" placeholder=""></div><a class="button" href="#" style="" data-appbuilder-object="button" data-position="static" data-transition="slide" id="calc_sft_b" onclick="getValues_sft_b();">Calculate</a><a class="button" href="#" style="" data-appbuilder-object="button" data-position="static" data-transition="slide" id="rst_sft_b" onclick="rst_sft_b_v();">Reset</a></div></div>
+	<div class="panel" title="About" id="page_3" data-appbuilder-object="page" style=""><div class="text_item" data-appbuilder-object="text" data-position="static">Land Converter 1.0</div><div class="text_item" data-appbuilder-object="text" data-position="static">Created by : Suresh dahal</div><div class="text_item" data-appbuilder-object="text" data-position="static">suresh_dahal12@yahoo.com</div></div>
+</div>
+          
+<div id="navbar">               
+	<a href="#page_0" class="icon home">Home</a><a href="#page_3" class="icon html5">About</a>
+               </div>
+        
+<header id="header_0" data-appbuilder-object="header">
+	     <a id="backButton" href="#" class="button back" style="visibility: visible; ">Back</a>
+	<h1 id="pageTitle" class="">
+		Land Converter 1.0
+	</h1>
+	     
+</header>
+        </div>
+    
+</body></html>
